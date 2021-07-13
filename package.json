@@ -1,0 +1,24 @@
+{
+  "name": "kazap-academy-2021-fanpics-api",
+  "version": "1.0.0",
+  "description": "API do fanpics para o Kazap Academy 2021",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bellps/kazap-academy-2021-fanpics-api.git"
+  },
+  "author": "Isabella Adorno",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bellps/kazap-academy-2021-fanpics-api/issues"
+  },
+  "homepage": "https://github.com/bellps/kazap-academy-2021-fanpics-api#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "helmet": "^4.6.0"
+  }
+}
