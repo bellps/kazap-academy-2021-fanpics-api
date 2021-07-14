@@ -105,3 +105,6 @@ dist
 
 # nvm
 .nvmrc
+
+# Secrets
+secrets.json
