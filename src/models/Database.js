@@ -15,7 +15,7 @@ class Database {
 
   // por convenção, métodos com underline são considerados privados, só podem ser usados com o self
   async _getMongoClientAndCollection() {
-    const MongoURI = secrets.mongoURI
+    const MongoURI = process.env.NODE_ENV === 'test' ? process.env.MONGO_URL : secrets.mongoURI
 
     const client = await MongoClient.connect(MongoURI, MongoOptions)
     const database = client.db()
@@ -79,6 +79,20 @@ class Database {
       client.close()
 
       return document
+    } catch (err) {
+      throw new Error(err)
+    }
+  }
+
+  async aggregate(query, sort = {}) {
+    const { client, collection } = await this._getMongoClientAndCollection()
+
+    try {
+      const documents = await collection.aggregate(query).sort(sort).toArray()
+
+      client.close()
+
+      return documents
     } catch (err) {
       throw new Error(err)
     }
